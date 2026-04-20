@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Coding Cost Report — April 2026</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, 'Segoe UI', sans-serif; background:#0d1117; color:#e6edf3; padding:40px 20px; }
+  .container { max-width:720px; margin:0 auto; }
+  h1 { font-size:28px; margin-bottom:8px; }
+  .subtitle { color:#8b949e; font-size:14px; margin-bottom:32px; }
+
+  /* Summary */
+  .summary { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:32px; }
+  .stat { background:#161b22; border:1px solid #30363d; border-radius:12px; padding:20px; }
+  .stat-value { font-size:32px; font-weight:700; }
+  .stat-label { font-size:12px; color:#8b949e; margin-top:4px; }
+  .stat-value.green { color:#22c55e; }
+  .stat-value.red { color:#f87171; }
+
+  /* Table */
+  table { width:100%; border-collapse:collapse; margin-bottom:32px; }
+  th { text-align:left; font-size:12px; color:#8b949e; text-transform:uppercase; letter-spacing:0.5px; padding:8px 12px; border-bottom:1px solid #30363d; }
+  td { padding:12px; border-bottom:1px solid #21262d; font-size:14px; }
+  td.cost { font-weight:600; color:#f0f6fc; }
+
+  /* Tips */
+  .section-title { font-size:18px; margin-bottom:16px; }
+  .tip { background:#161b22; border:1px solid #30363d; border-radius:12px; padding:20px; margin-bottom:12px; }
+  .tip-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .tip-number { background:#7c3aed; color:white; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; }
+  .tip-savings { color:#22c55e; font-weight:600; font-size:14px; }
+  .tip-action { font-size:15px; font-weight:600; margin-bottom:4px; }
+  .tip-detail { font-size:13px; color:#8b949e; line-height:1.5; }
+
+  /* Footer */
+  .report-footer { margin-top:40px; padding-top:20px; border-top:1px solid #21262d; text-align:center; color:#484f58; font-size:12px; }
+  .report-footer a { color:#7c3aed; text-decoration:none; }
+
+  /* CTA */
+  .cta { margin-top:32px; background:linear-gradient(135deg, #7c3aed22, #7c3aed11); border:1px solid #7c3aed44; border-radius:12px; padding:24px; text-align:center; }
+  .cta-title { font-size:16px; font-weight:600; margin-bottom:8px; }
+  .cta-text { font-size:13px; color:#8b949e; margin-bottom:16px; }
+  .cta-button { display:inline-block; background:#7c3aed; color:white; padding:10px 24px; border-radius:8px; font-weight:600; text-decoration:none; font-size:14px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Your AI Coding Spend</h1>
+  <div class="subtitle">April 2026 — Developer</div>
+
+  <div class="summary">
+    <div class="stat">
+      <div class="stat-value">$287</div>
+      <div class="stat-label">Total this month</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">$9.6</div>
+      <div class="stat-label">Daily average</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value green">$170</div>
+      <div class="stat-label">Potential monthly savings</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Tool Breakdown</h2>
+  <table>
+    <thead>
+      <tr><th>Tool</th><th>Category</th><th>Plan</th><th>Cost</th><th>Share</th><th>Usage</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Cursor Pro</td>
+      <td>IDE AI</td>
+      <td>Ultra ($200/mo)</td>
+      <td class="cost">$180</td>
+      <td>63%</td>
+      <td>Heavy — 8h/day coding</td>
+    </tr>
+    <tr>
+      <td>Claude Code</td>
+      <td>CLI AI</td>
+      <td>Max 5x ($100/mo)</td>
+      <td class="cost">$87</td>
+      <td>30%</td>
+      <td>Medium — CLI tasks + refactoring</td>
+    </tr>
+    <tr>
+      <td>GitHub Copilot</td>
+      <td>IDE AI</td>
+      <td>Individual ($10/mo) + Business ($19/mo)</td>
+      <td class="cost">$20</td>
+      <td>7%</td>
+      <td>Light — tab completions only</td>
+    </tr></tbody>
+  </table>
+
+  <h2 class="section-title">How to Cut Your Spend</h2>
+  
+    <div class="tip">
+      <div class="tip-header">
+        <span class="tip-number">1</span>
+        <span class="tip-savings">Save ~$96/mo</span>
+      </div>
+      <div class="tip-action">Consolidate IDE AI tools — you're paying for both Cursor Pro and GitHub Copilot</div>
+      <div class="tip-detail">If GitHub Copilot handles 60% of what Cursor Pro does, downgrading could save ~$96/mo</div>
+    </div>
+    <div class="tip">
+      <div class="tip-header">
+        <span class="tip-number">2</span>
+        <span class="tip-savings">Save ~$54/mo</span>
+      </div>
+      <div class="tip-action">Move refactoring & bulk edits from Cursor to Claude Code</div>
+      <div class="tip-detail">Claude Code excels at multi-file refactoring. Offloading 30% of Cursor tasks could save ~$54/mo</div>
+    </div>
+    <div class="tip">
+      <div class="tip-header">
+        <span class="tip-number">3</span>
+        <span class="tip-savings">Save ~$20/mo</span>
+      </div>
+      <div class="tip-action">Consider dropping GitHub Copilot — you marked it as "light" usage</div>
+      <div class="tip-detail">You're paying $20/mo for light usage. Considering cancelling</div>
+    </div>
+
+  <div class="cta">
+    <div class="cta-title">Want a personalized optimization plan?</div>
+    <div class="cta-text">Get specific recommendations for your workflow — which tool to use for what, when to switch, and exactly how much you'll save.</div>
+    <a href="#" class="cta-button">Get Deep Analysis — $9</a>
+  </div>
+
+  <div class="report-footer">
+    Generated by <a href="#">DevCostTracker</a> · 2026-04-15
+  </div>
+</div>
+</body>
+</html>

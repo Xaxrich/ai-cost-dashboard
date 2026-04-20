@@ -1,0 +1,13 @@
+{
+  "name": "ai-cost-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Coding Cost Dashboard — See where your AI coding budget goes",
+  "scripts": {
+    "generate-report": "node scripts/generate-report.js",
+    "test": "node scripts/generate-report.js --demo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
