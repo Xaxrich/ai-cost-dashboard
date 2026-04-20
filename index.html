@@ -165,19 +165,57 @@ function addTool() {
   toolCount++;
 }
 
-document.getElementById('costForm').addEventListener('submit', function(e) {
+const SUPABASE_URL = 'https://uaajvfqtyzchpvvpmxos.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVhYWp2ZnF0eXpjaHB2dnBteG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2NDYzMDksImV4cCI6MjA5MjIyMjMwOX0.7ohwQRqJOUkSZELVvUGHnciTIoFLvJTFLvwemWUE2Zg';
+
+document.getElementById('costForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const fd = new FormData(this);
-  const data = Object.fromEntries(fd.entries());
-  // For now, just show a thank you message
-  // In production, this POSTs to an API endpoint
-  this.innerHTML = `
-    <div style="text-align:center;padding:40px 0;">
-      <div style="font-size:48px;margin-bottom:16px;">&#10003;</div>
-      <h2 style="margin-bottom:8px;">Got it!</h2>
-      <p style="color:#8b949e;">Your AI coding cost report will be in your inbox within 24 hours.</p>
-    </div>`;
-  console.log('Form data:', data);
+  const raw = Object.fromEntries(fd.entries());
+
+  const tools = [];
+  for (let i = 0; i < 6; i++) {
+    if (raw[`tool_${i}_name`]) {
+      tools.push({
+        name: raw[`tool_${i}_name`],
+        cost: parseFloat(raw[`tool_${i}_cost`]) || 0,
+        plan: raw[`tool_${i}_plan`] || '',
+        usage: raw[`tool_${i}_usage`] || ''
+      });
+    }
+  }
+
+  const submission = {
+    email: raw.email,
+    tools: tools,
+    total_cost: tools.reduce((sum, t) => sum + t.cost, 0),
+    submitted_at: new Date().toISOString()
+  };
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/submissions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(submission)
+    });
+
+    if (!res.ok) throw new Error('Submit failed');
+
+    this.innerHTML = `
+      <div style="text-align:center;padding:40px 0;">
+        <div style="font-size:48px;margin-bottom:16px;">&#10003;</div>
+        <h2 style="margin-bottom:8px;">Got it!</h2>
+        <p style="color:#8b949e;">Your AI coding cost report will be in your inbox within 24 hours.</p>
+      </div>`;
+  } catch (err) {
+    alert('Something went wrong. Please try again.');
+    console.error(err);
+  }
 });
 </script>
 </body>
